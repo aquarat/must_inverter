@@ -1,4 +1,3 @@
-
 # Console Dumper for Must Power PH1800 Inverters
 [See my blog post for more info](https://aquarat.co.za/teardowns/reverse-engineering-a-solar-inverter-telemetry-protocol/).
 
