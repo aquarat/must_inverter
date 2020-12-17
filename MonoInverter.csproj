@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{831EBB3F-509C-44A6-A806-79A03944EC72}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MonoInverter</RootNamespace>
+    <AssemblyName>MonoInverter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.ValueTuple">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiContrib.Formatting.JavaScriptSerializer, Version=0.9.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>packages\WebApiContrib.Formatting.JavaScriptSerializer.0.9.4.0\lib\net40\WebApiContrib.Formatting.JavaScriptSerializer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extra\Infrastructure\Base\ComServiceBase.cs" />
+    <Compile Include="Extra\Infrastructure\Models\AppParam.cs" />
+    <Compile Include="Extra\Infrastructure\Models\AppWorkStates.cs" />
+    <Compile Include="Extra\Infrastructure\Models\Devices.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EarlyWarning.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EffectiveRange.cs" />
+    <Compile Include="Extra\Infrastructure\Models\Ep2000Model.cs" />
+    <Compile Include="Extra\Infrastructure\Models\Ep3000Model.cs" />
+    <Compile Include="Extra\Infrastructure\Models\Ep3000SocCompatable .cs" />
+    <Compile Include="Extra\Infrastructure\Models\Ep3000Status.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPAlarm.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPAVRState.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPBuzzerSilence.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPBuzzerState.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPChargeFlag.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPChargeState.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPLoadState.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPMainSW.cs" />
+    <Compile Include="Extra\Infrastructure\Models\EPWokrState.cs" />
+    <Compile Include="Extra\Infrastructure\Models\Log.cs" />
+    <Compile Include="Extra\Infrastructure\Models\PMEntity.cs" />
+    <Compile Include="Extra\Infrastructure\Models\WorkingMode.cs" />
+    <Compile Include="Extra\Infrastructure\Properties\Resources.Designer.cs" />
+    <Compile Include="Extra\Infrastructure\Properties\Settings.Designer.cs" />
+    <Compile Include="Extra\Infrastructure\Services\AppParamsServer.cs" />
+    <Compile Include="Extra\Infrastructure\Services\CallbackLogger.cs" />
+    <Compile Include="Extra\Infrastructure\Services\CommandStorage.cs" />
+    <Compile Include="Extra\Infrastructure\Services\DataFieldReader.cs" />
+    <Compile Include="Extra\Infrastructure\Services\Ep3000SocCompatableServer.cs" />
+    <Compile Include="Extra\Infrastructure\Services\FieldsScop.cs" />
+    <Compile Include="Extra\Infrastructure\Services\GlobalServer.cs" />
+    <Compile Include="Extra\Infrastructure\Services\MonitorState.cs" />
+    <Compile Include="Extra\Infrastructure\Services\MyComputer.cs" />
+    <Compile Include="Extra\Infrastructure\Services\StringOperater.cs" />
+    <Compile Include="Extra\Infrastructure\Services\StringParse.cs" />
+    <Compile Include="Extra\Model\IDataModel.cs" />
+    <Compile Include="Extra\Model\PH1000Model.cs" />
+    <Compile Include="Extra\Model\Properties\10Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\11Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\12Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\13Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\14Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\15Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\16Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\17Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\18Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\19Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\1Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\20Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\21Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\22Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\23Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\24Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\25Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\26Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\27Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\28Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\29Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\2Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\30Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\3Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\4Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\5Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\6Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\7Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\8Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\9Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\Annotations.cs" />
+    <Compile Include="Extra\Model\Properties\AspDataFieldAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspDataFieldsAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMethodPropertyAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcActionSelectorAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcDisplayTemplateAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcEditorTemplateAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcMasterAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcModelTypeAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcPartialViewAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcSuppressViewErrorAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcTemplateAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcViewAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcViewComponentAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AspMvcViewComponentViewAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\AssertionConditionType.cs" />
+    <Compile Include="Extra\Model\Properties\AssertionMethodAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\CanBeNullAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\CannotApplyEqualityOperatorAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\CollectionAccessType.cs" />
+    <Compile Include="Extra\Model\Properties\ImplicitUseKindFlags.cs" />
+    <Compile Include="Extra\Model\Properties\ImplicitUseTargetFlags.cs" />
+    <Compile Include="Extra\Model\Properties\InstantHandleAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\InvokerParameterNameAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\ItemCanBeNullAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\ItemNotNullAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\LinqTunnelAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\NoEnumerationAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\NoReorderAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\NotNullAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\ProvidesContextAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\PureAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RazorHelperCommonAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RazorLayoutAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RazorSectionAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RazorWriteLiteralMethodAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RazorWriteMethodAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RazorWriteMethodParameterAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\RegexPatternAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\SourceTemplateAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\TerminatesProgramAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\XamlItemBindingOfItemsControlAttribute.cs" />
+    <Compile Include="Extra\Model\Properties\XamlItemsControlAttribute.cs" />
+    <Compile Include="Extra\Model\Pv2000EffRange.cs" />
+    <Compile Include="Extra\Model\Pv2000ProM.cs" />
+    <Compile Include="Extra\Model\Rs485Model.cs" />
+    <Compile Include="Extra\Model\Rs485ModelForParal.cs" />
+    <Compile Include="Extra\RS485\MachinaType.cs" />
+    <Compile Include="Extra\RS485\Mod\ChargerSetting.cs" />
+    <Compile Include="Extra\RS485\Mod\InverterSetting.cs" />
+    <Compile Include="Extra\RS485\Services\IntToCheckConverter.cs" />
+    <Compile Include="Extra\RS485\Services\Rs485ComServer.cs" />
+    <Compile Include="Extra\RS485\Services\Rs485Const.cs" />
+    <Compile Include="Extra\RS485\Services\Rs485DataAnalysis.cs" />
+    <Compile Include="Extra\RS485\Services\Rs485Parse.cs" />
+    <Compile Include="Extra\RS485\UnitedRs485.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>
