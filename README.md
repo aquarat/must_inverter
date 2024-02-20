@@ -1,9 +1,11 @@
 # Console Dumper for Must Power PH1800 Inverters
 [See my blog post for more info](https://aquarat.co.za/teardowns/reverse-engineering-a-solar-inverter-telemetry-protocol/).
 
+Please note that I no longer own this inverter - mine blew up, so I can't provide any support for this. This repo is purely here in case it helps someone else. This is not a turn-key solution, you will have to put some work into this to use it.
+
 This is an extremely basic wrapper application for a decompiled library that targets Must Power PH1800 hybrid solar inverters. This app connects to the inverter, grabs all the current inverter stats and dumps the data as a JSON payload to stdout. It works well on a Raspberry Pi connected to a Must Power PH1800 via USB.
 
-The project is provided as-is. I no longer own a PH1800 (it blew up, long story). A binary executable for 32bit armhf boards (like the Pi) is provided [here](https://drive.google.com/file/d/15P8vta8QaSq_NnfAfMa6vZBCbI7lMW-g/view?usp=sharing).
+The project is provided as-is. I no longer own a PH1800 (it blew up, long story). A binary executable for 32bit armhf boards (like the Pi) is provided [here](https://drive.google.com/file/d/1uRiP4ziE-HvY9JT7OUR8IJj_7fJPqueP/view?usp=sharing).
 
 This project was put together with Jetbrains Rider on Ubuntu. It required some changes to the build script.
 
